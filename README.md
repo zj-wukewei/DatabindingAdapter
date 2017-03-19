@@ -1,6 +1,71 @@
 # DatabindingAdapter
 databinding版本的adapter
 
+
+## Usage
+
+#### Step 1. Create a class implements LayoutResId, for example:
+
+```java
+public class ImageModel implements LayoutResId {
+
+    private String name;
+    private String avater;
+
+
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public String getAvater() {
+        return avater;
+    }
+
+
+    public void setAvater(String avater) {
+        this.avater = avater;
+    }
+
+
+    @Override
+    public int getLayoutRes() {
+        return R.layout.layout_item_two;
+    }
+}
+```
+
+#### Step 2.  SuperAdapter , for example:
+
+```java
+
+    SuperAdapter<LayoutResId> mAdapter;
+    SuperAdapter<UserModel> mSingleTypeAdapter;
+
+
+    for (int i = 0; i < 20; i++) {
+                UserModel user = new UserModel();
+                user.setName("wukewei");
+                user.setAvater("wukewei lover");
+                ImageModel image = new ImageModel();
+                image.setName("1111111");
+                image.setAvater("22222222222");
+                mDatas.add(image);
+                mDatas.add(user);
+            }
+            mAdapter = new SuperAdapter<>(this);
+            mSingleTypeAdapter = new SuperAdapter<>(this);
+            mAdapter.addAll(mDatas);
+            mBinding.rv.setLayoutManager(new LinearLayoutManager(this));
+            mBinding.rv.setAdapter(mAdapter);
+
+```
+
 # Special thanks
 https://github.com/markzhai/DataBindingAdapter
 
