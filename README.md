@@ -1,0 +1,2 @@
+# DatabindingAdapter
+databinding版本的adapter
