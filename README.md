@@ -5,7 +5,7 @@ databinding版本的adapter
 License
 -------
 
-    Copyright 2016 drakeet.
+    Copyright 2016 wukewei.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
