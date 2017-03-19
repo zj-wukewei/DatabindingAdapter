@@ -1,6 +1,8 @@
 # DatabindingAdapter
 databinding版本的adapter
 
+# Special thanks
+https://github.com/markzhai/DataBindingAdapter
 
 License
 -------
