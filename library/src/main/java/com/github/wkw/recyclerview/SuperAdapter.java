@@ -32,24 +32,28 @@ import java.util.List;
 
 public class SuperAdapter<T extends LayoutResId> extends RecyclerView.Adapter<BindingViewHolder> {
 
-
     protected final LayoutInflater mLayoutInflater;
 
     protected List<T> mCollection = new ArrayList<>();
     protected Presenter mPresenter;
     protected Decorator mDecorator;
 
+
     public SuperAdapter(Context context) {
-        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mLayoutInflater = (LayoutInflater) context.getSystemService(
+            Context.LAYOUT_INFLATER_SERVICE);
     }
+
 
     public interface Presenter {
 
     }
 
+
     public interface Decorator {
         void decorator(BindingViewHolder holder, int position, int viewType);
     }
+
 
     @Override
     public BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -81,30 +85,36 @@ public class SuperAdapter<T extends LayoutResId> extends RecyclerView.Adapter<Bi
         return mCollection.size();
     }
 
+
     public void remove(int position) {
         mCollection.remove(position);
         notifyItemRemoved(position);
     }
+
 
     public void clear() {
         mCollection.clear();
         notifyDataSetChanged();
     }
 
+
     public void add(T viewModel) {
         mCollection.add(viewModel);
         notifyDataSetChanged();
     }
+
 
     public void add(int position, T viewModel) {
         mCollection.add(position, viewModel);
         notifyDataSetChanged();
     }
 
+
     public void set(List<T> viewModels) {
         mCollection.clear();
         addAll(viewModels);
     }
+
 
     public void addAll(List<T> viewModels) {
         mCollection.addAll(viewModels);
@@ -112,13 +122,20 @@ public class SuperAdapter<T extends LayoutResId> extends RecyclerView.Adapter<Bi
     }
 
 
+    public List<T> getCollection() {
+        return mCollection;
+    }
+
+
     public void setDecorator(Decorator decorator) {
         mDecorator = decorator;
     }
 
+
     public void setPresenter(Presenter presenter) {
         mPresenter = presenter;
     }
+
 
     protected Presenter getPresenter() {
         return mPresenter;
